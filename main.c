@@ -11,7 +11,7 @@ int main()
     float height_map[SCREEN_HEIGHT][SCREEN_WIDTH];
     Color color_map[SCREEN_HEIGHT][SCREEN_WIDTH];
 
-    generate_height_map(height_map);
+    generate_height_map(height_map, 154, 50.0f, 1.0f);
     generate_color_map(height_map, color_map);
 
     SDL_Window *window;
