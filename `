@@ -8,15 +8,10 @@
 int main()
 {
     int running = 1;
-    int seed;
-    float seed_noise, map_noise;
     float height_map[SCREEN_HEIGHT][SCREEN_WIDTH];
     Color color_map[SCREEN_HEIGHT][SCREEN_WIDTH];
 
-    scanf("%d", &seed);
-    scanf("%f %f", &seed_noise, &map_noise);
-
-    generate_height_map(height_map, seed, seed_noise, map_noise);
+    generate_height_map(height_map, 156, 80.0f, 100.0f);
     generate_color_map(height_map, color_map);
 
     SDL_Window *window;

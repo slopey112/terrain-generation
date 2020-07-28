@@ -1,6 +1,15 @@
 #include "color.h"
 #include "types.h"
+#include <stdio.h>
 
+float clamp(float ratio)
+{
+    if (ratio > 1.0f)
+        return 1.0f;
+    else if (ratio < 0.0f)
+        return 0.0f;
+    return ratio;
+}
 
 unsigned char channel_interpolate(unsigned char a, unsigned char b, float ratio)
 {
@@ -9,6 +18,7 @@ unsigned char channel_interpolate(unsigned char a, unsigned char b, float ratio)
 
 Color *color_interpolate(Color *from, Color *to, float ratio)
 {
+    ratio = clamp(ratio);
     // Cr = Ar + (Br - Ar) * t
     unsigned char new_r = channel_interpolate(from->r, to->r, ratio);
     unsigned char new_g = channel_interpolate(from->g, to->g, ratio);
